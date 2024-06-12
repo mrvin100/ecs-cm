@@ -1,11 +1,9 @@
-import viteLogo from "/ecs.png";
+import Header from "./components/Header";
 
 function App() {
   return (
     <>
-      <div>
-        <img src={viteLogo} className="logo" alt="Vite logo" />
-      </div>
+      <Header />
     </>
   );
 }
