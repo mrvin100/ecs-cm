@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import About from "./components/About";
 import Banner from "./components/Banner";
+import Services from "./components/Services";
 
 export default function Home({ url, page = 1, limit = 5 }) {
   const [images, setImages] = useState([]);
@@ -39,6 +40,7 @@ export default function Home({ url, page = 1, limit = 5 }) {
     <main className="home">
       <Banner images={images} />
       <About images={images} />
+      <Services images={images} />
     </main>
   );
 }
