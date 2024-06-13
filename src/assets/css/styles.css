@@ -19,7 +19,7 @@
   --border0: 1px solid rgba(0, 0, 0, 0.05);
   --border1: 1px solid rgba(0, 0, 0, 0.35);
   /* font family */
-  font-family: "Poppins", Arial, sans-serif;
+  --font-family: "Poppins", Arial, sans-serif;
 }
 
 /* initialization  */
@@ -47,6 +47,7 @@ body {
   font-weight: 400;
   color: var(--black1);
   background-color: var(--white1);
+  font-family: var(--font-family);
   &.dark {
     /* colors */
     --black1: #ffffff;
@@ -63,6 +64,10 @@ a {
   &:hover {
     color: #535bf2;
   }
+}
+input,
+textarea {
+  font-family: var(--font-family);
 }
 
 /* reusables classes */
@@ -104,9 +109,8 @@ h2.heading {
 }
 
 .btn {
-  border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.6rem 1.2rem;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -114,12 +118,16 @@ h2.heading {
   cursor: pointer;
   transition: border-color 0.25s;
   color: var(--white2);
-  &:hover {
-    border-color: #646cff;
-  }
+  outline: 1px solid transparent;
   &:focus,
   &:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
+  }
+  &:hover {
+    background-color: var(--white1);
+    transition: background-color 0.3s linear;
+    color: var(--black2);
+    outline: 1px solid var(--black1);
   }
 }
 .icons {
@@ -268,6 +276,15 @@ h2.heading {
     align-items: center;
     position: relative;
     margin: 0 auto;
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% calc(100% - 10px),
+      calc(50% + 10px) calc(100% - 10px),
+      50% 100%,
+      calc(50% - 10px) calc(100% - 10px),
+      0% calc(100% - 10px)
+    );
     img {
       height: 100%;
       width: 100%;
@@ -304,7 +321,13 @@ h2.heading {
       justify-content: center;
       align-items: center;
       position: absolute;
-      bottom: 1rem;
+      bottom: 2rem;
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(20px);
+      border-radius: 0.25rem;
+      box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+        rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+      padding: 1rem;
       left: 50%;
       transform: translateX(-50%);
       .current_indicator {
@@ -409,6 +432,38 @@ h2.heading {
     .content {
       border: var(--border1);
       padding: 1rem;
+    }
+  }
+}
+
+/* join section starts */
+
+.join {
+  border-bottom: var(--border1);
+  h2 {
+    text-align: center;
+    margin: 1rem 0;
+  }
+  .description {
+    max-width: 30rem;
+    margin: 1rem auto;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+  .input_box {
+    max-width: 40rem;
+    width: 100%;
+    margin: 0 auto;
+    .box {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      border: var(--border1);
+    }
+    .btn {
+      display: block;
+      width: 100%;
     }
   }
 }
